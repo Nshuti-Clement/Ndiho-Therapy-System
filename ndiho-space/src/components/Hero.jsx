@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import './Hero.css';
 
+const moods = [
+  { emoji: '🌱', label: 'Overwhelmed' },
+  { emoji: '☀️', label: 'Anxious' },
+  { emoji: '🌙', label: 'Sad/Low' },
+  { emoji: '🏡', label: 'Seeking Peace' },
+  { emoji: '🌊', label: 'Flow State' }
+];
+
 const moodMap = {
   Individual: 'Individual Therapy',
   Couples: 'Couple Therapy',
