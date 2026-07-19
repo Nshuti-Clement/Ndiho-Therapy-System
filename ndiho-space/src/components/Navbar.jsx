@@ -29,23 +29,22 @@ const Navbar = ({ onOpenAuth }) => {
         </a>
 
         <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
+          <a href="#about" onClick={() => scrollTo('about')}>About</a>
           <a href="#services" onClick={() => scrollTo('services')}>Services</a>
-          <a href="#video-therapy" onClick={() => scrollTo('video-therapy')} className="nav-highlight">
-            <Video size={14} /> Video Therapy
-          </a>
-          <a href="#booking-wizard-root" onClick={() => scrollTo('booking-wizard-root')}>Find Therapists</a>
-          <a href="#training" onClick={() => scrollTo('training')}>Training</a>
-          <a href="#contact" onClick={() => scrollTo('contact')}>Contact Us</a>
+          <a href="#become-therapists" onClick={() => scrollTo('become-therapists')}>Become Therapists</a>
+          <a href="#organisations" onClick={() => scrollTo('organisations')}>Organisations</a>
+          <a href="#advice" onClick={() => scrollTo('advice')}>Advice</a>
+          <a href="#faq" onClick={() => scrollTo('faq')}>FAQ</a>
           <button className="btn btn-secondary auth-mobile-btn" onClick={() => { setIsOpen(false); onOpenAuth(); }}>
             <User size={18} style={{ marginRight: '6px' }} />
-            Join Safe Place 
+            Join Safe place
           </button>
         </div>
 
         <div className="navbar-actions">
           <button className="btn btn-primary auth-desktop-btn" onClick={onOpenAuth}>
             <User size={18} style={{ marginRight: '6px' }} />
-            Join Sanctuary
+            Join Safe place
           </button>
           <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Navigation">
             {isOpen ? <X size={24} /> : <Menu size={24} />}

@@ -20,9 +20,9 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  line-height: 1.1;
-  margin-bottom: var(--spacing-lg);
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
   letter-spacing: -0.03em;
 }
 
@@ -32,12 +32,64 @@
   -webkit-text-fill-color: transparent;
 }
 
+.hero-subtitle {
+  font-size: 1.06rem;
+  margin-bottom: 0.75rem;
+  color: var(--on-background);
+  opacity: 0.9;
+}
+
+.therapy-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.therapy-pill {
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(195, 198, 207, 0.3);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  min-height: 110px;
+}
+
+.therapy-pill:hover,
+.therapy-pill:focus {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.therapy-pill strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.therapy-pill span {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--on-background);
+  opacity: 0.7;
+}
+
 .hero-description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--on-background);
   opacity: 0.85;
-  margin-bottom: var(--spacing-xl);
-  max-width: 540px;
+  margin-bottom: 0.65rem;
+  max-width: 520px;
+}
+
+.hero-quickline {
+  font-size: 0.98rem;
+  color: var(--on-background);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  max-width: 520px;
 }
 
 .hero-actions {
@@ -188,7 +240,11 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
+  .therapy-options {
+    grid-template-columns: 1fr;
+  }
+
   .hero-actions {
     justify-content: center;
   }

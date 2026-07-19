@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import './Hero.css';
 
-const moods = [
-  { emoji: '🌱', label: 'Overwhelmed' },
-  { emoji: '☀️', label: 'Anxious' },
-  { emoji: '🌙', label: 'Sad/Low' },
-  { emoji: '🏡', label: 'Seeking Peace' },
-  { emoji: '🌊', label: 'Flow State' }
+const moodMap = {
+  Individual: 'Individual Therapy',
+  Couples: 'Couple Therapy',
+  Teen: 'Teen Therapy'
+};
+
+const heroOptions = [
+  { title: 'Individual', subtitle: 'For myself' },
+  { title: 'Couples', subtitle: 'For me and my partner' },
+  { title: 'Teen', subtitle: 'For my child' }
 ];
 
 const Hero = ({ onNavigateToBooking, onSelectMood }) => {
   const [selectedMood, setSelectedMood] = useState(null);
 
-  const handleMoodSelect = (mood) => {
-    setSelectedMood(mood);
+  const handleMoodSelect = (option) => {
+    setSelectedMood(option);
     if (onSelectMood) {
-      onSelectMood(mood);
+      onSelectMood(moodMap[option] || option);
     }
   };
 
@@ -30,14 +34,21 @@ const Hero = ({ onNavigateToBooking, onSelectMood }) => {
               CONFIDENTIAL & ACCESSIBLE EVERYWHERE
             </span>
           </div>
-          <h1 className="hero-title">
-            Your mind deserves <br />
-            <span className="title-gradient">a safe sanctuary.</span>
-          </h1>
+          <h1 className="hero-title">You deserve to be happy.</h1>
+          <p className="hero-subtitle">What type of therapy are you looking for?</p>
+          <div className="therapy-options">
+            {heroOptions.map((option) => (
+              <button key={option.title} className="therapy-pill" onClick={() => handleMoodSelect(option.title)}>
+                <strong>{option.title}</strong>
+                <span>{option.subtitle}</span>
+              </button>
+            ))}
+          </div>
           <p className="hero-description">
-            NDIHO SPACE is a mental health platform built on trust, warmth, and clinical expertise. 
-            We connect you with qualified therapists, train next-generation psychologists, 
-            and make professional care accessible.
+            NDIHO SPACE connects you quickly with safe, licensed therapists and tailored care paths so you can feel understood and supported from the first session.
+          </p>
+          <p className="hero-quickline">
+            Online, confidential sessions for individuals, couples, and teens — book in minutes.
           </p>
           <div className="hero-actions">
             <button className="btn btn-primary btn-lg" onClick={onNavigateToBooking}>
