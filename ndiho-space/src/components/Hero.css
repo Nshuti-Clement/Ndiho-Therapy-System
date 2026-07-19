@@ -1,0 +1,229 @@
+.hero {
+  padding-top: 140px;
+  padding-bottom: var(--spacing-xxl);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+}
+
+.mood-chip-wrapper {
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.03em;
+}
+
+.title-gradient {
+  background: linear-gradient(135deg, var(--primary) 30%, var(--primary-container) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--on-background);
+  opacity: 0.85;
+  margin-bottom: var(--spacing-xl);
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.btn-lg {
+  padding: 0.9rem var(--spacing-xl);
+  font-size: 1.05rem;
+}
+
+/* Visual Column / Interactive Card Stack */
+.hero-visual {
+  position: relative;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sanctuary-card {
+  background: var(--surface-container-lowest);
+  border-radius: 24px;
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 420px;
+  z-index: 10;
+  box-shadow: 0px 16px 48px rgba(28, 27, 27, 0.04);
+  position: relative;
+}
+
+.sanctuary-card-title {
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-editorial);
+}
+
+.sanctuary-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--on-background);
+  opacity: 0.6;
+  margin-bottom: var(--spacing-lg);
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.mood-button {
+  background: var(--surface-container-low);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-family: var(--font-human);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+.mood-button:hover {
+  background: var(--primary-fixed);
+  transform: translateY(-2px);
+}
+
+.mood-button.active {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.mood-emoji {
+  font-size: 1.2rem;
+}
+
+.mood-feedback {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(195, 198, 207, 0.15); /* Ghost border fallback */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.mood-feedback p {
+  font-size: 0.9rem;
+  color: var(--on-background);
+  opacity: 0.8;
+}
+
+/* Asymmetric Background Layers */
+.asymmetric-bg-card-1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100%;
+  max-width: 420px;
+  height: 90%;
+  background: var(--surface-container-low);
+  border-radius: 24px;
+  transform: rotate(-3deg);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.asymmetric-bg-card-2 {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 100%;
+  max-width: 420px;
+  height: 80%;
+  background: var(--surface-container-highest);
+  border-radius: 24px;
+  transform: rotate(4deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: var(--spacing-xl);
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+  
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    height: auto;
+    margin-top: var(--spacing-xl);
+  }
+  
+  .sanctuary-card {
+    max-width: 100%;
+  }
+  
+  .asymmetric-bg-card-1,
+  .asymmetric-bg-card-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions button,
+  .hero-actions a {
+    width: 100%;
+  }
+  
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+}
